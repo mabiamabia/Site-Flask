@@ -1,5 +1,4 @@
-from webbrowser import BackgroundBrowser
-from flask import Flask
+from flask import Flask, render_template
 
 app = Flask(__name__)
 
@@ -10,11 +9,11 @@ app = Flask(__name__)
 
 @app.route("/")
 def homepage():
-    return "<h1>Esse é o meu primeiro site em Flask! </h1>"
+    return render_template("homepage.html")
 
 @app.route("/contatos")
 def contatos():
-    return "<div style = background-color: red;><h1>Entre em contato através:</h1> <p><h3>E-mail:</h3> duartecostap@gmail.com</p> <p><h3>Telefone:</h3> (11) 9876-5493</p></div>"
+    return render_template("contatos.html")
 
 # colocar site no ar
 if __name__ == "__main__":
